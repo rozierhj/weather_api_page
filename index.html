@@ -9,6 +9,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link href="./node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/CSS/style.css" />
     <title>Weather Forecast</title>
   </head>
@@ -17,34 +18,56 @@
 
     <main>
       <div id="city-searches">
+
         <div id="search-box">
             <form class="row g-3 needs-validation" novalidate>
+
                 <div class="col-md-12">
-                  <label for="validationCustom03" class="form-label">City</label>
+                  <label for="validationCustom03" class="form-label" id="city-label">Search for a City:</label>
                   <input type="text" class="form-control" id="validationCustom03" required>
                   <div class="invalid-feedback">
                     Please provide a valid city.
                   </div>
                 </div>
+
+                <div class="col-md-12" id="text-search">
+                  <button class="btn btn-primary" type="submit">Search</button> 
                 </div>
-                <div class="col-12">
-                  <button class="btn btn-primary" type="submit">Submit form</button>
-                </div>
+
               </form>
         </div>
-        <div id="search-history"></div>
+
+        <div id="search-history">
+            <div class="old-search"></div>
+        </div>
       </div>
+
       <div id="five-days">
-        <div id="weather-today"></div>
+        <div id="weather-today">
+            <div class="card-main">
+                <div class="card-main-date"></div>
+                <div class="card-main-temp"></div>
+                <div class="card-main-wind"></div>
+                <div class="card-main-humid"></div>
+            </div>
+        </div>
         <div id="daily-cards">
 
           <div id="weather-card1">
             <div class="card">
-                <div id="card-date">9/14/2022</div>
-                <div id="card-icon"></div>
-                <div id="card-temp"></div>
-                <div id="card-wind"></div>
-                <div id="card-humid"></div>
+                <div class="card-date">9/14/2022</div>
+                <div class="card-icon">
+                    <i class="bi bi-brightness-alt-high-fill"></i>
+                </div>
+                <div class="card-temp">
+                    95 deg
+                </div>
+                <div class="card-wind">
+                    37 mph
+                </div>
+                <div class="card-humid">
+                    63%
+                </div>
             </div>
           </div>
           <div id="weather-card2">
@@ -62,6 +85,7 @@
 
         </div>
       </div>
+
       <div id="right-padding"></div>
     </main>
 

@@ -20,35 +20,36 @@ header{
 }
 #weather-card1{
     display: flex;
-    justify-content: center;
+    justify-content: left;
     grid-column: 1/1;
-    border: 5px solid white;
+    /* border: 5px solid white; */
 }
 #weather-card2{
     display: flex;
-    justify-content: center;
+    justify-content: left;
     grid-column: 2/2;
-    border: 5px solid white;
+    /* border: 5px solid white; */
 }
 #weather-card3{
     display: flex;
-    justify-content: center;
+    justify-content: left;
     grid-column: 3/3;
-    border: 5px solid white;
+    /* border: 5px solid white; */
 }
 #weather-card4{
     display: flex;
-    justify-content: center;
+    justify-content: left;
     grid-column: 4/4;
-    border: 5px solid white;
+    /* border: 5px solid white; */
 }
 #weather-card5{
     display: flex;
-    justify-content: center;
+    justify-content: left;
     grid-column: 5/5;
-    border: 5px solid white;
+    /* border: 5px solid white; */
 }
 main{
+    position: relative;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -57,79 +58,128 @@ main{
     flex: 1;
 }
 #five-days{
-
+    position: relative;
     display: flex;
     flex-direction: column;
     background-color: yellow;
-    width: 100%;
+    /* width: 3000px; */
     height: auto;
+    width: 100%;
+    
 
 }
 #city-searches{
 
-    width: 400px;
+    width: 500px;
     height: auto;
     background-color: green;
 }
 #weather-today{
+    margin-left: 30px;
     background-color: purple;
     width: 100%;
-    height: 100px;
+    height: 300px;
 }
 #daily-cards{
+    margin-left: 30px;
+    width: 100%;
     display: grid;
     height: 100%;
     grid-template-columns: auto auto auto auto auto;
     /* gap: 10px; */
-    background-color: orangered;
+    /* background-color: orangered; */
     /* padding: 10px; */
 }
 #right-padding{
-    width: 100px;
+    position: relative;
+    right: 0;
+    width: 200px;
     height: auto;
     background-color: blue;
+    right: 0;
 }
 footer{
     height: 100px;
     background-color: red;
+    width: 100%;
 }
-.card{
-    display: grid;
+.card-main{
+    display: flex;
+    flex-direction: column;
     height: 100%;
-    grid-template-columns: auto auto auto auto;
-    width: 250px;
-    height: 250px;
-    margin-top: 10px;
+    width: 200px;
+    height: 200px;
+    /* margin-top: 10px; */
 }
-#card-date{
-    grid-column: 1/5;
+.card-main-date{
     border: 5px solid green;
     font-weight: bolder;
     font-size: 20px;
+    height: 25%;
 }
-#card-icon{
+.card-main-temp{
+    height: 25%;
     border: 5px solid green;
-    grid-column: 1/5;
-
 }
-#card-temp{
+.card-main-wind{
+    height: 25%;
     border: 5px solid green;
-    grid-column: 1/5;
 }
-#card-wind{
+.card-main-humid{
+    height: 25%;
     border: 5px solid green;
-    grid-column: 1/5;
 }
-#card-humid{
+.card{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 200px;
+    height: 200px;
+    margin-top: 10px;
+}
+.card-date{
     border: 5px solid green;
-    grid-column: 1/5;
+    font-weight: bolder;
+    /* font-size: 20px; */
+    height: 20%;
+}
+.card-icon{
+    height: 20%;
+    border: 5px solid green;
+}
+.card-temp{
+    height: 20%;
+    border: 5px solid green;
+}
+.card-wind{
+    height: 20%;
+    border: 5px solid green;
+}
+.card-humid{
+    height: 20%;
+    border: 5px solid green;
 }
 #search-box{
     display: flex;
     flex-direction: column;
     margin: 15px;
-
+    padding-bottom:15px ;
+    border-bottom: 2px solid lightgray;
 }
 #search-history{
     margin-bottom: 10px;
+}
+button{
+    width:100%;
+}
+#city-label{
+    font-weight: bolder;
+    font-size: 28px;
+}
+.old-search{
+    width: auto;
+    height: 40px;
+    background-color: pink;
+    margin: 15px;
+    border-radius: 10px;
 }

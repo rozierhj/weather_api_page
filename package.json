@@ -1,0 +1,26 @@
+{
+  "name": "weather_api_page",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm i bootstrap-icons"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rozierhj/weather_api_page.git"
+  },
+  "keywords": [
+    "heavenly",
+    "day"
+  ],
+  "author": "hunter rozier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rozierhj/weather_api_page/issues"
+  },
+  "homepage": "https://github.com/rozierhj/weather_api_page#readme",
+  "dependencies": {
+    "bootstrap-icons": "^1.11.3"
+  }
+}
