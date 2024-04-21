@@ -18,14 +18,35 @@ header{
     margin: 10px;
     background-image: linear-gradient(to left,var(--bs-success), var(--bs-success-bg-subtle));
 }
-.weather-card{
-
-    width: 200px;
-    height: 400px;
-    background-color: aqua;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    margin-left: 10px;
+#weather-card1{
+    display: flex;
+    justify-content: center;
+    grid-column: 1/1;
+    border: 5px solid white;
+}
+#weather-card2{
+    display: flex;
+    justify-content: center;
+    grid-column: 2/2;
+    border: 5px solid white;
+}
+#weather-card3{
+    display: flex;
+    justify-content: center;
+    grid-column: 3/3;
+    border: 5px solid white;
+}
+#weather-card4{
+    display: flex;
+    justify-content: center;
+    grid-column: 4/4;
+    border: 5px solid white;
+}
+#weather-card5{
+    display: flex;
+    justify-content: center;
+    grid-column: 5/5;
+    border: 5px solid white;
 }
 main{
     box-sizing: border-box;
@@ -46,7 +67,7 @@ main{
 }
 #city-searches{
 
-    width: 200px;
+    width: 400px;
     height: auto;
     background-color: green;
 }
@@ -56,10 +77,12 @@ main{
     height: 100px;
 }
 #daily-cards{
-    display: flex;
-    background-color: orangered;
+    display: grid;
     height: 100%;
-    width: auto;
+    grid-template-columns: auto auto auto auto auto;
+    /* gap: 10px; */
+    background-color: orangered;
+    /* padding: 10px; */
 }
 #right-padding{
     width: 100px;
@@ -69,4 +92,44 @@ main{
 footer{
     height: 100px;
     background-color: red;
+}
+.card{
+    display: grid;
+    height: 100%;
+    grid-template-columns: auto auto auto auto;
+    width: 250px;
+    height: 250px;
+    margin-top: 10px;
+}
+#card-date{
+    grid-column: 1/5;
+    border: 5px solid green;
+    font-weight: bolder;
+    font-size: 20px;
+}
+#card-icon{
+    border: 5px solid green;
+    grid-column: 1/5;
+
+}
+#card-temp{
+    border: 5px solid green;
+    grid-column: 1/5;
+}
+#card-wind{
+    border: 5px solid green;
+    grid-column: 1/5;
+}
+#card-humid{
+    border: 5px solid green;
+    grid-column: 1/5;
+}
+#search-box{
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+
+}
+#search-history{
+    margin-bottom: 10px;
 }

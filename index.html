@@ -16,15 +16,50 @@
     <header></header>
 
     <main>
-      <div id="city-searches"></div>
+      <div id="city-searches">
+        <div id="search-box">
+            <form class="row g-3 needs-validation" novalidate>
+                <div class="col-md-12">
+                  <label for="validationCustom03" class="form-label">City</label>
+                  <input type="text" class="form-control" id="validationCustom03" required>
+                  <div class="invalid-feedback">
+                    Please provide a valid city.
+                  </div>
+                </div>
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-primary" type="submit">Submit form</button>
+                </div>
+              </form>
+        </div>
+        <div id="search-history"></div>
+      </div>
       <div id="five-days">
         <div id="weather-today"></div>
         <div id="daily-cards">
-          <div class="weather-card"></div>
-          <div class="weather-card"></div>
-          <div class="weather-card"></div>
-          <div class="weather-card"></div>
-          <div class="weather-card"></div>
+
+          <div id="weather-card1">
+            <div class="card">
+                <div id="card-date">9/14/2022</div>
+                <div id="card-icon"></div>
+                <div id="card-temp"></div>
+                <div id="card-wind"></div>
+                <div id="card-humid"></div>
+            </div>
+          </div>
+          <div id="weather-card2">
+            <div class="card"></div>
+          </div>
+          <div id="weather-card3">
+            <div class="card"></div>
+          </div>
+          <div id="weather-card4">
+            <div class="card"></div>
+          </div>
+          <div id="weather-card5">
+            <div class="card"></div>
+          </div>
+
         </div>
       </div>
       <div id="right-padding"></div>
