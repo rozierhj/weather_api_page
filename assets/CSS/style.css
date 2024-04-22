@@ -61,7 +61,7 @@ main{
     position: relative;
     display: flex;
     flex-direction: column;
-    background-color: yellow;
+    /* background-color: yellow; */
     /* width: 3000px; */
     height: auto;
     width: 100%;
@@ -76,9 +76,9 @@ main{
 }
 #weather-today{
     margin-left: 30px;
-    background-color: purple;
+    /* background-color: purple; */
     width: 100%;
-    height: 300px;
+    height: 320px;
 }
 #daily-cards{
     margin-left: 30px;
@@ -95,12 +95,12 @@ main{
     right: 0;
     width: 200px;
     height: auto;
-    background-color: blue;
+    /* background-color: blue; */
     right: 0;
 }
 footer{
     height: 100px;
-    background-color: red;
+    /* background-color: red; */
     width: 100%;
 }
 .card-main{
@@ -108,25 +108,25 @@ footer{
     flex-direction: column;
     height: 100%;
     width: 200px;
-    height: 200px;
+    height: 300px;
     /* margin-top: 10px; */
 }
-.card-main-date{
+#card-main-date{
     border: 5px solid green;
     font-weight: bolder;
     font-size: 20px;
-    height: 25%;
+    height: 80px;
 }
-.card-main-temp{
-    height: 25%;
+#card-main-temp{
+    height: 80px;
     border: 5px solid green;
 }
-.card-main-wind{
-    height: 25%;
+#card-main-wind{
+    height: 80px;
     border: 5px solid green;
 }
-.card-main-humid{
-    height: 25%;
+#card-main-humid{
+    height: 80px;
     border: 5px solid green;
 }
 .card{
