@@ -11,7 +11,9 @@ window.onload = function(){
 
     for(let i = 0; i < citySearch.length; i++){
         let oldSearch = document.createElement('div');
-        oldSearch.textContent = citySearch[i];
+        let cityNameCap = citySearch[i];
+        cityNameCap = cityNameCap.charAt(0).toUpperCase() + cityNameCap.slice(1); 
+        oldSearch.textContent = cityNameCap;
         oldSearch.className = 'old-search';
         searchHistory.appendChild(oldSearch);
     }
@@ -26,17 +28,11 @@ submitButton.addEventListener('click', function(event){
     cityName = document.getElementById('validationCustom03').value;
     addCity(cityName);
     localStorage.setItem('citySearch',JSON.stringify(citySearch));
-    sessionStorage.setItem('lastSearch',JSON.stringify(citySearch));
+    sessionStorage.setItem('lastSearch',JSON.stringify(cityName));
     console.log(cityName);
 
     if(cityName !== ''){
 
-        let oldSearch = document.createElement('div');
-        oldSearch.textContent = cityName;
-        oldSearch.className = 'old-search';
-
-        let searchHistory = document.getElementById('search-history');
-        searchHistory.appendChild(oldSearch);
         runFetch(cityName);
 
         }
@@ -87,6 +83,7 @@ function runFetch(cityName){
         })
         .then(function(data){
             console.log(data);
+            loadMain(data);
             cityName = '';
             console.log(data.list[0].weather);
             let icon = data.list[0].weather[0].icon;
@@ -113,11 +110,39 @@ function runFetch(cityName){
 
 function addCity(cityToAdd){
 
-    citySearch = cityToAdd.toLowerCase();
+    cityToAdd = cityToAdd.toLowerCase();
 
     if(citySearch.includes(cityToAdd) === false){
         citySearch.push(cityToAdd);
     }
 
+
+}
+
+function loadMain(data){
+
+    let mainDate = document.getElementById('card-main-date');
+    let mainTemp = document.getElementById('card-main-temp');
+    let mainWind = document.getElementById('card-main-wind');
+    let mainHumid = document.getElementById('card-main-humid');
+    let dot = document.createElement('i');
+    dot.className = 'bi';
+    dot.classList.add('bi-circle');
+
+
+    let tempDate = new Date(data.list[0].dt_txt);
+    let newDate = tempDate.getMonth() + '/' + tempDate.getDate() + '/' + tempDate.getFullYear();
+    let tempKelvin = data.list[0].main.temp;
+    let tempFarnHt = (tempKelvin - 273.15)*9/5 + 32;
+    let windSpeed = (data.list[0].wind.speed)*2.23694;
+
+    mainDate.innerHTML = data.city.name + ' (' + newDate + ')';
+    console.log(mainDate);
+    mainTemp.innerHTML = 'Temp: ' + tempFarnHt.toFixed(2) + ' &degF';
+    console.log(mainTemp);
+    mainWind.innerHTML = 'Wind: ' + windSpeed.toFixed(2) + ' MPH';
+    console.log(mainWind);
+    mainHumid.innerHTML = 'Humidity: ' + data.list[0].main.humidity + ' %';
+    console.log(mainHumid);
 
 }
