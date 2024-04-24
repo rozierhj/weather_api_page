@@ -61,7 +61,7 @@ main{
     position: relative;
     display: flex;
     flex-direction: column;
-    /* background-color: yellow; */
+    background-color: yellow;
     /* width: 3000px; */
     height: auto;
     width: 100%;
@@ -70,13 +70,13 @@ main{
 }
 #city-searches{
 
-    width: 500px;
+    width: 20%;
     height: auto;
     background-color: green;
 }
 #weather-today{
     margin-left: 30px;
-    /* background-color: purple; */
+    background-color: purple;
     width: 100%;
     height: 320px;
 }
@@ -87,7 +87,7 @@ main{
     height: 100%;
     grid-template-columns: auto auto auto auto auto;
     /* gap: 10px; */
-    /* background-color: orangered; */
+    background-color: orangered;
     /* padding: 10px; */
 }
 #right-padding{
@@ -95,12 +95,12 @@ main{
     right: 0;
     width: 200px;
     height: auto;
-    /* background-color: blue; */
+    background-color: blue;
     right: 0;
 }
 footer{
     height: 100px;
-    /* background-color: red; */
+    background-color: red;
     width: 100%;
 }
 .card-main{
@@ -177,9 +177,17 @@ button{
     font-size: 28px;
 }
 .old-search{
+    display: flex;
     width: auto;
     height: 40px;
     background-color: pink;
     margin: 15px;
     border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    padding: 0;
+}
+.old-search:hover{
+    cursor: pointer;
 }
