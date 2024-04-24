@@ -12,10 +12,28 @@ window.onload = function(){
     for(let i = 0; i < citySearch.length; i++){
         let oldSearch = document.createElement('div');
         let cityNameCap = citySearch[i];
-        cityNameCap = cityNameCap.charAt(0).toUpperCase() + cityNameCap.slice(1); 
-        oldSearch.textContent = cityNameCap;
-        oldSearch.className = 'old-search';
-        searchHistory.appendChild(oldSearch);
+        let cityNameString = cityNameCap.split(' ');
+        console.log(cityNameString);
+        if(cityNameString.length > 0){
+            cityNameCap = '';
+            for(let k = 0; k < cityNameString.length; k++){
+                let names = cityNameString[k]
+                if(k < cityNameString.length - 1){
+                    cityNameCap = cityNameCap + names.charAt(0).toUpperCase() + names.slice(1) + ' ';
+                }else{
+                    cityNameCap = cityNameCap + names.charAt(0).toUpperCase() + names.slice(1);
+                }
+                
+                //console.log(cityNameCap);
+            }
+            oldSearch.textContent = cityNameCap;
+            oldSearch.className = 'old-search';
+            searchHistory.appendChild(oldSearch);
+        }
+        // cityNameCap = cityNameCap.charAt(0).toUpperCase() + cityNameCap.slice(1); 
+        // oldSearch.textContent = cityNameCap;
+        // oldSearch.className = 'old-search';
+        // searchHistory.appendChild(oldSearch);
     }
 
 }
@@ -92,14 +110,14 @@ function runFetch(cityName){
         })
         .catch(function(error){
             console.error('error:',error);
-            alert('invalid input');
+         //   alert('invalid input');
         });
 
 
     })
     .catch(function(error){
         console.error('error:',error);
-        alert('invalid input');
+     //   alert('invalid input');
     });
 
 }
