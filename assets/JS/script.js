@@ -43,8 +43,9 @@ searchHistory.addEventListener('click', function(event){
 
 
     if (event.target.classList.contains('old-search')){
-        citySearch = event.target.textContent;
-        sessionStorage.setItem('lastSearch',JSON.stringify(citySearch));
+        cityName = event.target.textContent;
+        sessionStorage.setItem('lastSearch',JSON.stringify(cityName));
+        clearFiveDay();
         runFetch(cityName);
     }
 
@@ -84,15 +85,10 @@ function runFetch(cityName){
         .then(function(data){
             console.log(data);
             loadMain(data);
+            loadFiveDay(data);
             cityName = '';
             console.log(data.list[0].weather);
-            let icon = data.list[0].weather[0].icon;
-            const iconUrl = `http://openweathermap.org/img/wn/${icon}.png`;
-            const iconImg = document.createElement('img');
-            iconImg.src = iconUrl;
-            //iconImg.style.backgroundColor = 'blue';
-            const iconContainer = document.getElementById('card-main-date');
-            iconContainer.appendChild(iconImg);
+
         })
         .catch(function(error){
             console.error('error:',error);
@@ -125,10 +121,9 @@ function loadMain(data){
     let mainTemp = document.getElementById('card-main-temp');
     let mainWind = document.getElementById('card-main-wind');
     let mainHumid = document.getElementById('card-main-humid');
-    let dot = document.createElement('i');
-    dot.className = 'bi';
-    dot.classList.add('bi-circle');
-
+    // let dot = document.createElement('i');
+    // dot.className = 'bi';
+    // dot.classList.add('bi-circle');
 
     let tempDate = new Date(data.list[0].dt_txt);
     let newDate = tempDate.getMonth() + '/' + tempDate.getDate() + '/' + tempDate.getFullYear();
@@ -137,12 +132,92 @@ function loadMain(data){
     let windSpeed = (data.list[0].wind.speed)*2.23694;
 
     mainDate.innerHTML = data.city.name + ' (' + newDate + ')';
-    console.log(mainDate);
+    // console.log(mainDate);
     mainTemp.innerHTML = 'Temp: ' + tempFarnHt.toFixed(2) + ' &degF';
-    console.log(mainTemp);
+    // console.log(mainTemp);
     mainWind.innerHTML = 'Wind: ' + windSpeed.toFixed(2) + ' MPH';
-    console.log(mainWind);
+    // console.log(mainWind);
     mainHumid.innerHTML = 'Humidity: ' + data.list[0].main.humidity + ' %';
-    console.log(mainHumid);
+    // console.log(mainHumid);
+
+    let icon = data.list[0].weather[0].icon;
+    const iconUrl = `http://openweathermap.org/img/wn/${icon}.png`;
+    const iconImg = document.createElement('img');
+    iconImg.src = iconUrl;
+    //iconImg.style.backgroundColor = 'blue';
+    //const iconContainer = document.getElementById('card-main-date');
+    mainDate.appendChild(iconImg);
+
+}
+
+function loadFiveDay(data){
+
+    let tempFirstDay = new Date(data.list[0].dt_txt);
+    let oldDay = tempFirstDay.getDate();
+    let cardNum = 1;
+
+
+    let i = 0;
+    while(i < data.list.length && cardNum < 6){
+    //dayCount = dayCount + 8;
+
+    let newTempDay = new Date(data.list[i].dt_txt);
+    let newDay = newTempDay.getDate();
+
+if(newDay !== oldDay){
+
+    oldDay = newDay;
+    let day = document.createElement('div');
+    let dayDate = document.createElement('h4');
+    let dayIcon = document.createElement('img');
+    let dayTemp = document.createElement('p');
+    let dayWind = document.createElement('p');
+    let dayHum = document.createElement('p');
+    day.className = 'card';
+
+    let tempDate = new Date(data.list[i].dt_txt);
+    let newDate = tempDate.getMonth() + '/' + tempDate.getDate() + '/' + tempDate.getFullYear();
+    let tempKelvin = data.list[i].main.temp;
+    let tempFarnHt = (tempKelvin - 273.15)*9/5 + 32;
+    let windSpeed = (data.list[i].wind.speed)*2.23694;
+
+        console.log(windSpeed);
+        
+    dayDate.innerHTML = newDate;
+    dayTemp.innerHTML = 'Temp: ' + tempFarnHt.toFixed(2) + ' &degF';
+    dayWind.innerHTML = 'Wind: ' + windSpeed.toFixed(2) + ' MPH';
+    dayHum.innerHTML = 'Humidity: ' + data.list[i].main.humidity + ' %';
+
+    let icon = data.list[i].weather[0].icon;
+    let iconUrl = `http://openweathermap.org/img/wn/${icon}.png`;
+    dayIcon.src = iconUrl;
+
+    let dayCard = document.getElementById('weather-card'+cardNum);
+    day.appendChild(dayDate);
+    day.appendChild(dayIcon);
+    day.appendChild(dayTemp);
+    day.appendChild(dayWind);
+    day.appendChild(dayHum);
+    dayCard.appendChild(day);
+    cardNum++;
+    }
+    i++;
+    }
+
+}
+
+function clearFiveDay(){
+
+    let weatherCard1 = document.getElementById('weather-card1');
+    let weatherCard2 = document.getElementById('weather-card2');
+    let weatherCard3 = document.getElementById('weather-card3');
+    let weatherCard4 = document.getElementById('weather-card4');
+    let weatherCard5 = document.getElementById('weather-card5');
+
+    weatherCard1.innerHTML = '';
+    weatherCard2.innerHTML = '';
+    weatherCard3.innerHTML = '';
+    weatherCard4.innerHTML = '';
+    weatherCard5.innerHTML = '';
 
 }

@@ -61,7 +61,7 @@ main{
     position: relative;
     display: flex;
     flex-direction: column;
-    background-color: yellow;
+    /* background-color: yellow; */
     /* width: 3000px; */
     height: auto;
     width: 100%;
@@ -70,24 +70,28 @@ main{
 }
 #city-searches{
 
+    margin-top: 10px;
+    margin-left: 10px;
     width: 20%;
-    height: auto;
-    background-color: green;
+    height: 100%;
+    
+    background-color:var(--bs-success);
 }
 #weather-today{
     margin-left: 30px;
-    background-color: purple;
+    /* background-color: purple; */
     width: 100%;
-    height: 320px;
+    height: 240px;
 }
 #daily-cards{
     margin-left: 30px;
+    margin-top: 10px;
     width: 100%;
     display: grid;
     height: 100%;
     grid-template-columns: auto auto auto auto auto;
     /* gap: 10px; */
-    background-color: orangered;
+    /* background-color: orangered; */
     /* padding: 10px; */
 }
 #right-padding{
@@ -95,12 +99,12 @@ main{
     right: 0;
     width: 200px;
     height: auto;
-    background-color: blue;
+    /* background-color: blue; */
     right: 0;
 }
 footer{
     height: 100px;
-    background-color: red;
+    /* background-color: red; */
     width: 100%;
 }
 .card-main{
@@ -109,54 +113,64 @@ footer{
     height: 100%;
     width: 50%;
     /* height: 300px; */
-    /* margin-top: 10px; */
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid grey;
+    background-image: linear-gradient(to right,var(--bs-success), var(--bs-success-bg-subtle));
 }
 #card-main-date{
     display: flex;
     align-items: center;
     padding-left: 10px;
-    border: 5px solid green;
+    /* border: 5px solid green; */
     font-weight: bolder;
     font-size: 20px;
-    height: 80px;
+    height: 25%;
 }
 #card-main-wind, #card-main-humid, #card-main-temp{
     display: flex;
     align-items: center;
     padding-left: 10px;
-    height: 80px;
-    border: 5px solid green;
+    height: 25%;
+    /* border: 5px solid green; */
 }
 .card{
     display: flex;
     flex-direction: column;
-    height: 100%;
+    /* height: 100%; */
     width: 200px;
     height: 200px;
     margin-top: 10px;
+    padding: 8px;
+    background-image: linear-gradient(to right,var(--bs-success), var(--bs-success-bg-subtle));
 }
-.card-date{
+/* .card-date{
     border: 5px solid green;
     font-weight: bolder;
-    /* font-size: 20px; */
+    font-size: 20px;
     height: 20%;
+} */
+
+.card p{
+    /* height: 20%;
+    border: 5px solid green; */
 }
-.card-icon{
+.card img{
     height: 20%;
-    border: 5px solid green;
+    width: 40px;
 }
-.card-temp{
-    height: 20%;
-    border: 5px solid green;
-}
-.card-wind{
-    height: 20%;
-    border: 5px solid green;
-}
-.card-humid{
+/* .card-temp{
     height: 20%;
     border: 5px solid green;
-}
+} */
+/* .card-wind{
+    height: 20%;
+    border: 5px solid green;
+} */
+/* .card-humid{
+    height: 20%;
+    border: 5px solid green;
+} */
 #search-box{
     display: flex;
     flex-direction: column;
@@ -178,8 +192,9 @@ button{
     display: flex;
     width: auto;
     height: 40px;
-    background-color: pink;
+    background-color: darkslategrey;
     margin: 15px;
+    color: white;
     border-radius: 10px;
     align-items: center;
     justify-content: center;
