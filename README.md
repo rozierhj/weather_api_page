@@ -6,7 +6,7 @@ The focus of this challenge was on using an api via a fetch request. In this cha
 
 ## Usage
 
-Here is a [link to the webpage](https://rozierhj.github.io/ch05.blog.post/index.html)
+<!-- Here is a [link to the webpage](https://rozierhj.github.io/ch05.blog.post/index.html)
 
 This is what the web page should like like when this challenge is complete.
 
@@ -24,4 +24,4 @@ Dark Mode Blog Posts
 ![Here are the Blog Posts in Dark Mode](./blog.html.darkMode.png)  
 
 
-A video of [The Webpage in action](https://app.screencastify.com/v3/watch/BNGVJT8Dz7fipOhJPVpb)
+A video of [The Webpage in action](https://app.screencastify.com/v3/watch/BNGVJT8Dz7fipOhJPVpb) -->
