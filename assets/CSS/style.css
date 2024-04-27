@@ -142,7 +142,7 @@ header h3{
     height: 240px;
 }
 
-/* Five Day Forecast Cards */
+/* Five Day Forecast Cards set up in grid style */
 #weather-card1{
     display: flex;
     justify-content: left;

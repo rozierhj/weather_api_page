@@ -9,6 +9,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <!-- bootstrap icon library for sun icon header added -->
     <link href="./node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/CSS/style.css" />
     <title>Weather Forecast</title>
@@ -20,8 +21,10 @@
     </header>
 
     <main>
+      <!-- column containing city search input, button and history -->
       <div id="city-searches">
 
+          <!-- user search input field and button -->
         <div id="search-box">
             <form class="row g-3 needs-validation" novalidate>
 
@@ -37,11 +40,14 @@
               </form>
         </div>
 
+        <!-- search history that user can select -->
         <div id="search-history">
         </div>
       </div>
 
+      <!-- main weather card and 5 day cards parent -->
       <div id="five-days">
+        <!-- main weather card with todays forecast -->
         <div id="weather-today">
             <div class="card-main">
                 <div id="card-main-date"></div>
@@ -50,37 +56,19 @@
                 <div id="card-main-humid"></div>
             </div>
         </div>
+        <!-- 5 day forcast set up in grid style -->
         <div id="daily-cards">
 
-          <div id="weather-card1">
-            <!-- <div class="card">
-                <div class="card-date"></div>
-                <div class="card-icon">
-                </div>
-                <div class="card-temp">
-                </div>
-                <div class="card-wind">
-                </div>
-                <div class="card-humid">
-                </div>
-            </div> -->
-          </div>
-          <div id="weather-card2">
-            <!-- <div class="card"></div> -->
-          </div>
-          <div id="weather-card3">
-            <!-- <div class="card"></div> -->
-          </div>
-          <div id="weather-card4">
-            <!-- <div class="card"></div> -->
-          </div>
-          <div id="weather-card5">
-            <!-- <div class="card"></div> -->
-          </div>
+          <div id="weather-card1"></div>
+          <div id="weather-card2"></div>
+          <div id="weather-card3"></div>
+          <div id="weather-card4"></div>
+          <div id="weather-card5"></div>
 
         </div>
       </div>
 
+      <!-- element adds padding to the right side of the page -->
       <div id="right-padding"></div>
     </main>
 
