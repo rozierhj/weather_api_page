@@ -1,4 +1,5 @@
 :root{
+    font-family: arial, sans-serif;
     box-sizing:border-box;
     padding: 0;
     margin: 0;
@@ -108,6 +109,7 @@ footer{
     width: 100%;
 }
 .card-main{
+    color: white;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -144,13 +146,9 @@ footer{
     padding: 8px;
     background-image: linear-gradient(to right,var(--bs-success), var(--bs-success-bg-subtle));
 }
-/* .card-date{
-    border: 5px solid green;
-    font-weight: bolder;
-    font-size: 20px;
-    height: 20%;
-} */
-
+.card h4{
+    color: white;
+}
 .card p{
     /* height: 20%;
     border: 5px solid green; */
@@ -159,19 +157,8 @@ footer{
     height: 20%;
     width: 40px;
 }
-/* .card-temp{
-    height: 20%;
-    border: 5px solid green;
-} */
-/* .card-wind{
-    height: 20%;
-    border: 5px solid green;
-} */
-/* .card-humid{
-    height: 20%;
-    border: 5px solid green;
-} */
 #search-box{
+    color: white;
     display: flex;
     flex-direction: column;
     margin: 15px;
@@ -182,6 +169,7 @@ footer{
     margin-bottom: 10px;
 }
 button{
+    
     width:100%;
 }
 #city-label{
@@ -228,5 +216,12 @@ header h3{
     margin: 0;
     padding: 0;
     padding-right: 64px;
+
+}
+#form-submit{
+
+    color:var(--bs-success);
+    background-color: var(--bs-success-bg-subtle);
+    border-color: darkslategray;
 
 }
