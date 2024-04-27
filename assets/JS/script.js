@@ -85,7 +85,7 @@ searchHistory.addEventListener('click', function(event){
 function runFetch(cityName){
 
     //get longitude and latitude cooordinates of city searched by user
-    let url ='http://api.openweathermap.org/geo/1.0/direct?q='+cityName+'&limit=1&appid=87f25cdc20ece7fa1b91717bdc086ae6';
+    let url ='https://api.openweathermap.org/geo/1.0/direct?q='+cityName+'&limit=1&appid=87f25cdc20ece7fa1b91717bdc086ae6';
 
     fetch(url,{
         method:'GET',
@@ -101,7 +101,7 @@ function runFetch(cityName){
         let lon1 = data[0].lon;
     
         //setup search for city weather by longitude and latitude
-        let url1 = 'http://api.openweathermap.org/data/2.5/forecast?lat='
+        let url1 = 'https://api.openweathermap.org/data/2.5/forecast?lat='
         let url2 = 'appid=87f25cdc20ece7fa1b91717bdc086ae6';
         let weather5 = url1 + lat1 + '&lon=' + lon1 + '&'+ url2;
         //console.log(weather5);
@@ -180,7 +180,7 @@ function loadMain(data){
     // console.log(mainHumid);
 
     let icon = data.list[0].weather[0].icon;
-    const iconUrl = `http://openweathermap.org/img/wn/${icon}.png`;
+    const iconUrl = `https://openweathermap.org/img/wn/${icon}.png`;
     const iconImg = document.createElement('img');
     iconImg.src = iconUrl;
     //iconImg.style.backgroundColor = 'blue';
@@ -229,7 +229,7 @@ if(newDay !== oldDay){
     dayHum.innerHTML = 'Humidity: ' + data.list[i].main.humidity + ' %';
 
     let icon = data.list[i].weather[0].icon;
-    let iconUrl = `http://openweathermap.org/img/wn/${icon}.png`;
+    let iconUrl = `https://openweathermap.org/img/wn/${icon}.png`;
     dayIcon.src = iconUrl;
 
     let dayCard = document.getElementById('weather-card'+cardNum);
