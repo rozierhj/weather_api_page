@@ -1,19 +1,27 @@
+//keep track of all searches
 let citySearch = JSON.parse(localStorage.getItem('citySearch'))||[];
+
+//keep track of most recent search
 let cityName = JSON.parse(sessionStorage.getItem('lastSearch'));
 let submitButton = document.getElementById('form-submit');
 let searchHistory = document.getElementById('search-history');
 
+
 window.onload = function(){
 
+    //reload most recent search on page load
     if(cityName !== null && cityName !== ''){
         runFetch(cityName);
     }
 
+    //go through citry search history from local storage and append it to search column on page
     for(let i = 0; i < citySearch.length; i++){
         let oldSearch = document.createElement('div');
         let cityNameCap = citySearch[i];
+
+        //styling search history to have capital letter for each word in the city name 
         let cityNameString = cityNameCap.split(' ');
-        console.log(cityNameString);
+       // console.log(cityNameString);
         if(cityNameString.length > 0){
             cityNameCap = '';
             for(let k = 0; k < cityNameString.length; k++){
@@ -30,47 +38,53 @@ window.onload = function(){
             oldSearch.className = 'old-search';
             searchHistory.appendChild(oldSearch);
         }
-        // cityNameCap = cityNameCap.charAt(0).toUpperCase() + cityNameCap.slice(1); 
-        // oldSearch.textContent = cityNameCap;
-        // oldSearch.className = 'old-search';
-        // searchHistory.appendChild(oldSearch);
+
     }
 
 }
 
+//search for city weather when user hits submit button
 submitButton.addEventListener('click', function(event){
 
-    //event.preventDefault();
-
-   
     cityName = document.getElementById('validationCustom03').value;
+
+    //function adds city to history if it is not already in search history
     addCity(cityName);
+    //update local storage
     localStorage.setItem('citySearch',JSON.stringify(citySearch));
+    //update most recent search
     sessionStorage.setItem('lastSearch',JSON.stringify(cityName));
-    console.log(cityName);
+   // console.log(cityName);
 
     if(cityName !== ''){
 
+        //get city weather
         runFetch(cityName);
 
         }
 
 });
 
+//search for city weather if user clicks on previous search history
 searchHistory.addEventListener('click', function(event){
 
 
     if (event.target.classList.contains('old-search')){
         cityName = event.target.textContent;
+        //update most recent city search
         sessionStorage.setItem('lastSearch',JSON.stringify(cityName));
+        //get rid of current search data
         clearFiveDay();
+        //get weather from data from previous search
         runFetch(cityName);
     }
 
 });
 
+//fetch request to get weather data from weather api
 function runFetch(cityName){
 
+    //get longitude and latitude cooordinates of city searched by user
     let url ='http://api.openweathermap.org/geo/1.0/direct?q='+cityName+'&limit=1&appid=87f25cdc20ece7fa1b91717bdc086ae6';
 
     fetch(url,{
@@ -79,27 +93,18 @@ function runFetch(cityName){
     .then(function(response){
 
             return response.json();
-        
-        
+              
     })
     .then(function(data){
-        //console.log(data);
-       //  weather5 = data;
-       //  console.log(data[0].lat);
-       if(data.length < 1){
-        alert('Bad search input, please try again');
-        return;
-       }
-       else{
+
         let lat1 = data[0].lat;
         let lon1 = data[0].lon;
     
-        //console.log(lat1 + ' - ' + lon1);
+        //setup search for city weather by longitude and latitude
         let url1 = 'http://api.openweathermap.org/data/2.5/forecast?lat='
         let url2 = 'appid=87f25cdc20ece7fa1b91717bdc086ae6';
         let weather5 = url1 + lat1 + '&lon=' + lon1 + '&'+ url2;
-        console.log(weather5);
-        //weather5 = 'http://api.openweathermap.org/data/2.5/forecast?lat=lat1&lon=lon1&appid=44d53a879b6605862d3a1b3bdba2a127';
+        //console.log(weather5);
        
     
         fetch(weather5,{
@@ -109,11 +114,15 @@ function runFetch(cityName){
             return response.json();
         })
         .then(function(data){
-            console.log(data);
+          //  console.log(data);
+
+            //get weather data for main card
             loadMain(data);
+
+            //get the 5 day forecast
             loadFiveDay(data);
             cityName = '';
-            console.log(data.list[0].weather);
+           // console.log(data.list[0].weather);
 
         })
         .catch(function(error){
@@ -124,7 +133,7 @@ function runFetch(cityName){
         });
 
 
-        }
+        
     })
     .catch(function(error){
         console.error('error:',error);
@@ -132,6 +141,7 @@ function runFetch(cityName){
 
 }
 
+//function to test if city searched has already been done
 function addCity(cityToAdd){
 
     cityToAdd = cityToAdd.toLowerCase();
@@ -143,6 +153,7 @@ function addCity(cityToAdd){
 
 }
 
+//load today's weather data into main weather card
 function loadMain(data){
 
     let mainDate = document.getElementById('card-main-date');
@@ -178,6 +189,7 @@ function loadMain(data){
 
 }
 
+//create card elments for the 5 day forecast and populate them with weather data
 function loadFiveDay(data){
 
     let tempFirstDay = new Date(data.list[0].dt_txt);
@@ -234,6 +246,7 @@ if(newDay !== oldDay){
 
 }
 
+//clear weather card data
 function clearFiveDay(){
 
     let weatherCard1 = document.getElementById('weather-card1');
