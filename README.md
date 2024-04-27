@@ -6,9 +6,9 @@ The focus of this challenge was on using an api via a fetch request. In this cha
 
 ## Usage
 
-<!-- Here is a [link to the webpage](https://rozierhj.github.io/ch05.blog.post/index.html)
+Here is a [link to the webpage](https://rozierhj.github.io/weather_api_page/)
 
-This is what the web page should like like when this challenge is complete.
+<!-- This is what the web page should like like when this challenge is complete.
 
 Light Mode Homepage
 ![Here is the Hompage in Light Mode](./index.html.png)
