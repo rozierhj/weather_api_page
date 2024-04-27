@@ -204,3 +204,29 @@ button{
 #search-history .old-search:hover{
     cursor: pointer;
 }
+header{
+    display: flex;
+    align-items:end;
+    font-size: 100px;
+}
+header i{
+    display: flex;
+    align-items: end;
+    margin-left: 24px;
+    color:var(--bs-success);
+    
+}
+header h3{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    font-weight: 700;
+    font-size: 32px;
+    height: 100%;
+    width: 100%;
+    color: white;
+    margin: 0;
+    padding: 0;
+    padding-right: 64px;
+
+}
