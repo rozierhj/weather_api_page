@@ -77,12 +77,20 @@ function runFetch(cityName){
         method:'GET',
     })
     .then(function(response){
-        return response.json();
+
+            return response.json();
+        
+        
     })
     .then(function(data){
         //console.log(data);
        //  weather5 = data;
        //  console.log(data[0].lat);
+       if(data.length < 1){
+        alert('Bad search input, please try again');
+        return;
+       }
+       else{
         let lat1 = data[0].lat;
         let lon1 = data[0].lon;
     
@@ -110,14 +118,16 @@ function runFetch(cityName){
         })
         .catch(function(error){
             console.error('error:',error);
+            // if(error === true)
+            // alert('invalid city input');
          //   alert('invalid input');
         });
 
 
+        }
     })
     .catch(function(error){
         console.error('error:',error);
-     //   alert('invalid input');
     });
 
 }

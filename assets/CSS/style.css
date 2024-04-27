@@ -201,6 +201,6 @@ button{
     font-weight: 500;
     padding: 0;
 }
-.old-search:hover{
+#search-history .old-search:hover{
     cursor: pointer;
 }
