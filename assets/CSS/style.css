@@ -12,43 +12,6 @@ body{
     margin: 0;
     padding: 0;
 }
-header{
-
-    height: 100px;
-    width: auto;
-    margin: 10px;
-    background-image: linear-gradient(to left,var(--bs-success), var(--bs-success-bg-subtle));
-}
-#weather-card1{
-    display: flex;
-    justify-content: left;
-    grid-column: 1/1;
-    /* border: 5px solid white; */
-}
-#weather-card2{
-    display: flex;
-    justify-content: left;
-    grid-column: 2/2;
-    /* border: 5px solid white; */
-}
-#weather-card3{
-    display: flex;
-    justify-content: left;
-    grid-column: 3/3;
-    /* border: 5px solid white; */
-}
-#weather-card4{
-    display: flex;
-    justify-content: left;
-    grid-column: 4/4;
-    /* border: 5px solid white; */
-}
-#weather-card5{
-    display: flex;
-    justify-content: left;
-    grid-column: 5/5;
-    /* border: 5px solid white; */
-}
 main{
     position: relative;
     box-sizing: border-box;
@@ -58,105 +21,46 @@ main{
     height: 100%;
     flex: 1;
 }
-#five-days{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    /* background-color: yellow; */
-    /* width: 3000px; */
-    height: auto;
-    width: 100%;
-    
-
-}
-#city-searches{
-
-    margin-top: 10px;
-    margin-left: 10px;
-    width: 20%;
-    height: 100%;
-    
-    background-color:var(--bs-success);
-}
-#weather-today{
-    margin-left: 30px;
-    /* background-color: purple; */
-    width: 100%;
-    height: 240px;
-}
-#daily-cards{
-    margin-left: 30px;
-    margin-top: 10px;
-    width: 100%;
-    display: grid;
-    height: 100%;
-    grid-template-columns: auto auto auto auto auto;
-    /* gap: 10px; */
-    /* background-color: orangered; */
-    /* padding: 10px; */
-}
 #right-padding{
     position: relative;
     right: 0;
     width: 200px;
     height: auto;
-    /* background-color: blue; */
     right: 0;
 }
-footer{
+
+/* Page Header */
+header{
+
+    display: flex;
+    align-items:end;
+    font-size: 100px;
     height: 100px;
-    /* background-color: red; */
-    width: 100%;
-}
-.card-main{
-    color: white;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
     width: auto;
-    /* height: 300px; */
-    margin-top: 10px;
-    padding-bottom: 10px;
-    border: 1px solid grey;
-    background-image: linear-gradient(to right,var(--bs-success), var(--bs-success-bg-subtle));
+    margin: 10px;
+    background-image: linear-gradient(to left,var(--bs-success), var(--bs-success-bg-subtle));
 }
-#card-main-date{
+header i{
+    display: flex;
+    align-items: end;
+    margin-left: 24px;
+    color:var(--bs-success);  
+}
+header h3{
     display: flex;
     align-items: center;
-    padding-left: 10px;
-    /* border: 5px solid green; */
-    font-weight: bolder;
-    font-size: 20px;
-    height: 25%;
-}
-#card-main-wind, #card-main-humid, #card-main-temp{
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-    height: 25%;
-    /* border: 5px solid green; */
-}
-.card{
-    display: flex;
-    flex-direction: column;
-    /* height: 100%; */
-    width: 200px;
-    height: 200px;
-    margin-top: 10px;
-    padding: 8px;
-    background-image: linear-gradient(to right,var(--bs-success), var(--bs-success-bg-subtle));
-}
-.card h4{
+    justify-content: end;
+    font-weight: 700;
+    font-size: 32px;
+    height: 100%;
+    width: 100%;
     color: white;
+    margin: 0;
+    padding: 0;
+    padding-right: 64px;
 }
-.card p{
-    /* height: 20%;
-    border: 5px solid green; */
-}
-.card img{
-    height: 20%;
-    width: 40px;
-}
+
+/* Search Bar */
 #search-box{
     color: white;
     display: flex;
@@ -167,10 +71,6 @@ footer{
 }
 #search-history{
     margin-bottom: 10px;
-}
-button{
-    
-    width:100%;
 }
 #city-label{
     font-weight: bolder;
@@ -192,36 +92,118 @@ button{
 #search-history .old-search:hover{
     cursor: pointer;
 }
-header{
-    display: flex;
-    align-items:end;
-    font-size: 100px;
-}
-header i{
-    display: flex;
-    align-items: end;
-    margin-left: 24px;
-    color:var(--bs-success);
-    
-}
-header h3{
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    font-weight: 700;
-    font-size: 32px;
-    height: 100%;
-    width: 100%;
-    color: white;
-    margin: 0;
-    padding: 0;
-    padding-right: 64px;
-
-}
 #form-submit{
 
-    color:var(--bs-success);
+    width:100%;
+    font-size: 18px;
+    font-weight: bold;
+    color:darkslategray;
     background-color: var(--bs-success-bg-subtle);
     border-color: darkslategray;
-
 }
+#city-searches{
+
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 20%;
+    height: 100%;
+    background-color:var(--bs-success);
+}
+
+/* Main Weather Card for current day */
+.card-main{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: auto;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid grey;
+    background-image: linear-gradient(to right,var(--bs-success), var(--bs-success-bg-subtle));
+}
+#card-main-date{
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-weight: bolder;
+    font-size: 20px;
+    height: 25%;
+}
+#card-main-wind, #card-main-humid, #card-main-temp{
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    height: 25%;
+}
+#weather-today{
+    margin-left: 30px;
+    width: 100%;
+    height: 240px;
+}
+
+/* Five Day Forecast Cards */
+#weather-card1{
+    display: flex;
+    justify-content: left;
+    grid-column: 1/1;
+}
+#weather-card2{
+    display: flex;
+    justify-content: left;
+    grid-column: 2/2;
+}
+#weather-card3{
+    display: flex;
+    justify-content: left;
+    grid-column: 3/3;
+}
+#weather-card4{
+    display: flex;
+    justify-content: left;
+    grid-column: 4/4;
+}
+#weather-card5{
+    display: flex;
+    justify-content: left;
+    grid-column: 5/5;
+}
+#five-days{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+}
+#daily-cards{
+    margin-left: 30px;
+    margin-top: 10px;
+    width: 100%;
+    display: grid;
+    height: 100%;
+    grid-template-columns: auto auto auto auto auto;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+    margin-top: 10px;
+    padding: 8px;
+    background-image: linear-gradient(to right,var(--bs-success), var(--bs-success-bg-subtle));
+}
+.card h4{
+    color: white;
+}
+.card img{
+    height: 20%;
+    width: 40px;
+}
+
+/* Footer */
+footer{
+    height: 100px;
+    width: 100%;
+}
+
+

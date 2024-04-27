@@ -154,7 +154,7 @@ function loadMain(data){
     // dot.classList.add('bi-circle');
 
     let tempDate = new Date(data.list[0].dt_txt);
-    let newDate = tempDate.getMonth() + '/' + tempDate.getDate() + '/' + tempDate.getFullYear();
+    let newDate = tempDate.getMonth() +1+ '/' + tempDate.getDate() + '/' + tempDate.getFullYear();
     let tempKelvin = data.list[0].main.temp;
     let tempFarnHt = (tempKelvin - 273.15)*9/5 + 32;
     let windSpeed = (data.list[0].wind.speed)*2.23694;
@@ -204,7 +204,7 @@ if(newDay !== oldDay){
     day.className = 'card';
 
     let tempDate = new Date(data.list[i].dt_txt);
-    let newDate = tempDate.getMonth() + '/' + tempDate.getDate() + '/' + tempDate.getFullYear();
+    let newDate = tempDate.getMonth() + 1+'/' + tempDate.getDate() + '/' + tempDate.getFullYear();
     let tempKelvin = data.list[i].main.temp;
     let tempFarnHt = (tempKelvin - 273.15)*9/5 + 32;
     let windSpeed = (data.list[i].wind.speed)*2.23694;
